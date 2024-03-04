@@ -60,7 +60,7 @@ scriptings:
     update_interval: 5
 - http_response:
     name: ChatGPT
-    match: ^https?:\/\/ios\.chat\.openai\.com\/backend-api\/(accounts\/check\/|models)
+    match: ^https?:\/\/ios\.chat\.openai\.com\/backend-api\/(accounts\/check\/|models(.*?)*$)
     script_url: https://nnt1.github.io/portfolio/SL/ChatGPTPlus.js
     body_required: true
     update_interval: 5
