@@ -122,7 +122,8 @@ const list = {
     'ask.fun': {name: 'ngl_pro', id: 'ngl_pro_10' },
     'sendit': {name: 'allaccess', id: 'subscription_weekly_allaccess_1' },
     'linkit': {name: 'unlimitedhints', id: 'senditig_diamond_weekly_499' },
-    'starmatch': {name: 'diamondStarmatchWeekly', id: 'diamond_startmatch_weekly_599' }
+    'starmatch': {name: 'diamondStarmatchWeekly', id: 'diamond_startmatch_weekly_599' },
+    'ShadowDraw': {name: 'subscription', id: 'subscription_lifetime' },
   };  
 const data = {
   "expires_date": "9692-02-18T07:52:54Z",
