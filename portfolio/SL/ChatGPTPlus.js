@@ -1,24 +1,6 @@
-var body = $response.body;
-var urlq = $request.url;
-var objc = JSON.parse(body);
-if (urlq.indexOf("/accounts/check") != -0x1) {
-  objc.accounts['default'].account.has_previously_paid_subscription = true;
-  objc.accounts["default"].account.processor.a001.has_customer_object = true;
-  objc.accounts['default'].account.processor.b001.has_transaction_history = true;
-  objc.accounts["default"].features = ["show_existing_user_age_confirmation_modal", "dfw_message_feedback", "model_switcher", "log_intercom_events", "plugins_available", 'log_statsig_events', "data_export_enabled", "data_deletion_enabled", "new_model_switcher_20230512", "browsing_available", 'beta_features', "data_controls_enabled", 'dfw_inline_message_regen_comparison', "model_preview", "infinite_scroll_history"];
-  objc.accounts["default"].entitlement = {
-    'expires_at': '2999-09-28T13:14:52+00:00',
-    'subscription_id': "3e7d7b26-3c0b-401e-b361-123777666cqy",
-    'subscription_plan': "chatgptplusplan",
-    'has_active_subscription': true
-  };
-  objc.accounts['default'].last_active_subscription = {
-    'subscription_id': "3e7d7b26-3c0b-401e-b361-123777666cqy",
-    'will_renew': true,
-    'purchase_origin_platform': "chatgpt_mobile_ios"
-  };
-} else {
-  objc = {
+var objc = JSON.parse($response.body);
+
+objc = {
     'categories': [{
       'category': "gpt_3.5",
       'subscription_level': 'free',
@@ -98,7 +80,5 @@ if (urlq.indexOf("/accounts/check") != -0x1) {
       'tags': ['beta']
     }]
   };
-}
-$done({
-  'body': JSON.stringify(objc)
-});
+
+$done({ body: JSON.stringify(objc) });
