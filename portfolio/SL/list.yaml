@@ -1,0 +1,60 @@
+mitm:
+  enabled: true
+  hostnames:
+  - api.revenuecat.com
+  - buy.itunes.com
+  - api.picsart.com
+  - api-account.kinemasters.com
+  - us-central1-alight-creative.cloudfunctions.net
+  - ios.chat.openai.com
+http_captures:
+- api.revenuecat.com
+- buy.itunes.com
+- api-account.kinemasters.com
+- api.picsart.com
+- us-central1-alight-creative.cloudfunctions.net
+- ios.chat.openai.com
+
+scriptings:
+- http_response:
+    name: All Generic
+    match: ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$)
+    script_url: https://nnt1.github.io/portfolio/SL/RC.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: VivaCut
+    match: https://api-fra.vivacut.com/api/rest/commerce/integrate/vip/perform
+    script_url: https://N9dev-dev.github.io/SL/scripts/VivaCut.js
+    body_required: true
+    update_interval: 5
+- http_request:
+    name: VSCO
+    match: ^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$)
+    script_url: https://N9dev-dev.github.io/SL/scripts/VSCO.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: KineMaster
+    match: https://api-account.kinemasters.com/v2/user/subscribe
+    script_url: https://N9dev-dev.github.io/SL/scripts/KineMaster.js
+    body_required: true
+    update_interval: 5
+- http_request:
+    name: PicsArt
+    match: https://api.picsart.com/gw-v2/shop/subscription/apple/purchases
+    script_url: https://N9dev-dev.github.io/SL/scripts/PicsArt.js
+    body_required: true
+    update_interval: 5
+- http_request:
+    name: InShot
+    match: ^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt
+    script_url: https://N9dev-dev.github.io/SL/scripts/InShot.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Alight Motion
+    match: https://us-central1-alight-creative.cloudfunctions.net/getAccountStatusAndLicenses
+    script_url: https://N9dev-dev.github.io/SL/scripts/AlightMotion.js
+    body_required: true
+    update_interval: 5
