@@ -7,6 +7,8 @@ mitm:
   - api-account.kinemasters.com
   - us-central1-alight-creative.cloudfunctions.net
   - ios.chat.openai.com
+  - lcs-mobile-cops.adobe.io
+  - createpdf.acrobat.com
 http_captures:
 - api.revenuecat.com
 - buy.itunes.com
@@ -14,6 +16,8 @@ http_captures:
 - api.picsart.com
 - us-central1-alight-creative.cloudfunctions.net
 - ios.chat.openai.com
+- lcs-mobile-cops.adobe.io
+- createpdf.acrobat.com
 
 scriptings:
 - http_response:
@@ -62,5 +66,17 @@ scriptings:
     name: ChatGPT
     match: ^https?:\/\/ios\.chat\.openai\.com\/backend-api\/(accounts\/check\/|models(.*?)*$)
     script_url: https://nnt1.github.io/portfolio/SL/ChatGPTPlus.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Adobe Photoshop, Adobe Illustrator, Adobe Lightroom, ...
+    match: https://lcs-mobile-cops.adobe.io/mobile_profile/nul/v2
+    script_url: https://nnt1.github.io/portfolio/SL/adobe.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Adobe Scan, Adobe Acrobat
+    match: https://createpdf.acrobat.com/createpdf/api/users/me/subscriptions
+    script_url: https://nnt1.github.io/portfolio/SL/adobeScanPdf.js
     body_required: true
     update_interval: 5
