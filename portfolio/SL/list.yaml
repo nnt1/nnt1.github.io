@@ -68,3 +68,15 @@ scriptings:
     script_url: https://nnt1.github.io/portfolio/SL/ChatGPTPlus.js
     body_required: true
     update_interval: 5
+- http_response:
+    name: Adobe Photoshop, Adobe Illustrator, Adobe Lightroom, ...
+    match: https://lcs-mobile-cops.adobe.io/mobile_profile/nul/v2
+    script_url: https://nnt1.github.io/portfolio/SL/adobe.js
+    body_required: true
+    update_interval: 5
+- http_response:
+    name: Adobe Scan, Adobe Acrobat
+    match: https://createpdf.acrobat.com/createpdf/api/users/me/subscriptions
+    script_url: https://nnt1.github.io/portfolio/SL/adobeScanPdf.js
+    body_required: true
+    update_interval: 5
